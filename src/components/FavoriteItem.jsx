@@ -23,7 +23,7 @@ import {
 } from "firebase/firestore";
 
 const FavoriteItem = ({ data, user, navHandler }) => {
-  const navigate = useNavigate();
+  let navigate = useNavigate();
   const onDeleteHandler = async () => {
     try {
       const q = await query(
@@ -40,6 +40,7 @@ const FavoriteItem = ({ data, user, navHandler }) => {
         .map((doc) => doc.id)[0];
       if (response) {
         await deleteDoc(doc(db, "favorites", response));
+        navigate('/favorite');
       }
     } catch (error) {
       console.log(error);
@@ -103,7 +104,6 @@ const FavoriteItem = ({ data, user, navHandler }) => {
             sx={{ width: "100%" }}
             onClick={(e) => {
               onDeleteHandler(user, JSON.parse(data.data)?.id);
-              navigate('/favorite');
             }}
           >
             <RemoveCircleOutlineIcon /> &nbsp; Remove
