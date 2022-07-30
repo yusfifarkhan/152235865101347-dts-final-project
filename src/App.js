@@ -46,7 +46,7 @@ const App = () => {
                   <Detail handleNav={handleNavigation} user={user?.email} />
                 </AuthProvider>
               }
-              forceRefresh={true}
+
             />
             <Route
               path="/signin"
@@ -63,6 +63,7 @@ const App = () => {
                   <Favorite user={user?.email} navHandler={handleNavigation} />
                 </AuthProvider>
               }
+              forceRefresh={true}
             />
             <Route path="/denied" element={<Error error="denied" />} />
             <Route path="/missing" element={<Error error="missing" />} />
