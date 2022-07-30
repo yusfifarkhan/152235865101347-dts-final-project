@@ -11,7 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { db } from "../services/fireBase";
 import {
   collection,
@@ -40,7 +40,7 @@ const FavoriteItem = ({ data, user, navHandler }) => {
         .map((doc) => doc.id)[0];
       if (response) {
         await deleteDoc(doc(db, "favorites", response));
-        navigate('/favorite');
+        navigate("/favorite");
       }
     } catch (error) {
       console.log(error);
