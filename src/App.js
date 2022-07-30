@@ -46,6 +46,7 @@ const App = () => {
                   <Detail handleNav={handleNavigation} user={user?.email} />
                 </AuthProvider>
               }
+              forceRefresh={true}
             />
             <Route
               path="/signin"
