@@ -74,12 +74,12 @@ const DetailItem = ({ user }) => {
 
   return (
     <>
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+      <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="warning" sx={{ width: "100%" }}>
           You have already added it to your favorite games.
         </Alert>
       </Snackbar>
-      <Snackbar open={added} autoHideDuration={6000} onClose={handleClose}>
+      <Snackbar open={added} autoHideDuration={3000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
           Added to your favorite games,
         </Alert>
