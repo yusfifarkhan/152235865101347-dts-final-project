@@ -17,7 +17,7 @@ const Favorite = ({ user, navHandler }) => {
       setFavorites(data.docs.map((doc) => ({ ...doc?.data(), id: doc?.id })));
     };
     getUserFavoriteGame();
-  }, [user, favorites]);
+  }, [user]);
   return (
     <Container
       maxWidth="md"
