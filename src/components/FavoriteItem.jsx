@@ -11,6 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
+import {useNavigate} from 'react-router-dom';
 import { db } from "../services/fireBase";
 import {
   collection,
@@ -22,6 +23,7 @@ import {
 } from "firebase/firestore";
 
 const FavoriteItem = ({ data, user, navHandler }) => {
+  const navigate = useNavigate();
   const onDeleteHandler = async () => {
     try {
       const q = await query(
@@ -42,8 +44,6 @@ const FavoriteItem = ({ data, user, navHandler }) => {
     } catch (error) {
       console.log(error);
     }
-
-    window.location.replace("https://152235865101347-dts-final-project.netlify.app/favorite");
   };
 
   return (
@@ -103,6 +103,7 @@ const FavoriteItem = ({ data, user, navHandler }) => {
             sx={{ width: "100%" }}
             onClick={(e) => {
               onDeleteHandler(user, JSON.parse(data.data)?.id);
+              navigate('/favorite');
             }}
           >
             <RemoveCircleOutlineIcon /> &nbsp; Remove
