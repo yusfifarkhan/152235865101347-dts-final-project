@@ -64,7 +64,7 @@ const App = () => {
               }
             />
             <Route path="/denied" element={<Error error="denied" />} />
-            <Route element={<Error error="missing" />} />
+            <Route path="*" element={<Error error="missing" />} />
           </Routes>
         </main>
         <Footer />
