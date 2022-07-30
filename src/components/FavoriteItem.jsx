@@ -43,7 +43,7 @@ const FavoriteItem = ({ data, user, navHandler }) => {
       console.log(error);
     }
 
-    window.location.reload();
+    window.location.replace("https://152235865101347-dts-final-project.netlify.app/favorite");
   };
 
   return (
