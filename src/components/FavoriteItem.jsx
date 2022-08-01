@@ -41,7 +41,7 @@ const FavoriteItem = ({ data, user, navHandler }) => {
       if (response) {
         const deleteData = await deleteDoc(doc(db, "favorites", response));
         if (deleteData) {
-          navigate("/favorite", { replace: true });
+          navigate("/favorite");
         }
       }
     } catch (error) {
