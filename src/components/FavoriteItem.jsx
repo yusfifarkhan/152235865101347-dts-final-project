@@ -11,7 +11,6 @@ import {
   Typography,
 } from "@mui/material";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
-import { useNavigate } from "react-router-dom";
 import { db } from "../services/fireBase";
 import {
   collection,
@@ -23,7 +22,6 @@ import {
 } from "firebase/firestore";
 
 const FavoriteItem = ({ data, user, navHandler }) => {
-  let navigate = useNavigate();
   const onDeleteHandler = async () => {
     try {
       const q = await query(
@@ -40,7 +38,9 @@ const FavoriteItem = ({ data, user, navHandler }) => {
         .map((doc) => doc.id)[0];
       if (response) {
         const deleteData = await deleteDoc(doc(db, "favorites", response));
-        window.location.reload()
+        if(deleteData){
+          window.location.reload()
+        }
       }
     } catch (error) {
       console.log(error);
